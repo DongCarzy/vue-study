@@ -1,0 +1,20 @@
+{
+  "include": [
+    "./src/**/*"
+  ],
+  "compilerOptions": {
+    // 与 Vue 的浏览器支持保持一致
+    "target": "es5",
+    // 这可以对 `this` 上的数据 property 进行更严格的推断
+    "strict": true,
+    // 是否包含可以用于 debug 的 sourceMap
+    "sourceMap": true,
+    // 如果使用 webpack 2+ 或 rollup，可以利用 tree-shake:
+    "module": "es2015",
+     // 如何处理模块
+    "moduleResolution": "node",
+    // 启用装饰器
+    "experimentalDecorators": true,
+  },
+  "exclude": []
+}
