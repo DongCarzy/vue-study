@@ -1,6 +1,8 @@
 {
   "include": [
-    "./src/**/*"
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
   ],
   "compilerOptions": {
     // 与 Vue 的浏览器支持保持一致
@@ -16,5 +18,5 @@
     // 启用装饰器
     "experimentalDecorators": true,
   },
-  "exclude": []
+  "exclude": ["node_modules"]
 }

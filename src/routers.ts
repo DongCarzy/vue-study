@@ -1,4 +1,4 @@
-import Home from '@/page/Home';
+// import Home from '@/page/Home';
 // import Demo from '@/page/Demo';
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -9,10 +9,10 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: '/',
-      component: Home
-    },
+    // {
+    //   path: '/',
+    //   component: Home
+    // },
     // {
     //   path: '/demo',
     //   name: 'Demo',
