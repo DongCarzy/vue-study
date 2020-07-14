@@ -26,47 +26,42 @@
   </div>
 </template>
 
-<script>
-import todoItem from "@/component/todo-item";
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import TodoItem from "@/component/TodoItem.vue";
 
-export default {
-  name: "demo",
-  props: [],
-  data: function() {
-    return {
-      message: "页面加载于 " + new Date().toLocaleString(),
-      see: true,
-      msg: "",
-      groceryList: [
-        { id: 0, text: "蔬菜" },
-        { id: 1, text: "奶酪" },
-        { id: 2, text: "随便其它什么人吃的东西" }
-      ],
-      newTodo: ""
-    };
-  },
-  computed: {
-    addDisable: function() {
-      return this.newTodo === "";
-    }
-  },
-  methods: {
-    show: function() {
-      this.see = !this.see;
-    },
-    add: function() {
-      let grocery = { id: this.groceryList.length, text: this.newTodo };
-      if (this.newTodo) {
-        this.groceryList.push(grocery);
-        this.newTodo = "";
-      }
-    },
-    deleteTodo: function(id) {
-      this.groceryList = this.groceryList.filter(v => v.id != id);
-    }
-  },
+@Component({
   components: {
-    "todo-item": todoItem
+    TodoItem
   }
-};
+})
+export default class Demo extends Vue {
+  private message = "页面加载于 " + new Date().toLocaleString();
+  private see = true;
+  msg = "";
+  private groceryList = [
+    { id: 0, text: "蔬菜" },
+    { id: 1, text: "奶酪" },
+    { id: 2, text: "随便其它什么人吃的东西" }
+  ];
+  private newTodo: string = "";
+
+  get addDisable() {return this.newTodo === "";}
+
+  show() {
+    this.see = !this.see;
+  }
+
+  add() {
+    let grocery = { id: this.groceryList.length, text: this.newTodo };
+    if (this.newTodo) {
+      this.groceryList.push(grocery);
+      this.newTodo = "";
+    }
+  }
+
+  deleteTodo(id: number): void {
+    this.groceryList = this.groceryList.filter(v => v.id != id);
+  }
+}
 </script>

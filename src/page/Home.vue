@@ -2,10 +2,10 @@
   <div>HOME</div>
 </template>
 
-<script>
-import Vue from 'vue'
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator'
 
-const Component = Vue.extend({
-  // 类型推断已启用
-})
+@Component
+export default class Home extends Vue {
+}
 </script>
