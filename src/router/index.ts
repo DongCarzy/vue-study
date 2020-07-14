@@ -1,5 +1,6 @@
-import Home from '@/page/Home.vue'
-import Demo from '@/page/Demo.vue'
+import Home from '@/view/Home.vue'
+import Demo from '@/view/Demo.vue'
+import Login from '@/view/login/Login.vue'
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 
@@ -9,6 +10,11 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     component: Home
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
   },
   {
     path: '/home',

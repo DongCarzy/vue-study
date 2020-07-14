@@ -63,6 +63,13 @@ module.exports = {
           appendTsSuffixTo: [/\.vue$/],
         }
       },
+      /**
+       * 处理 html, style 中引入的图片问题
+       */
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader',
+      }
     ]
   },
   devtool: "source-map",
@@ -79,7 +86,7 @@ module.exports = {
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'index.html',
+      template: './index.html',
       inject: true
     })
   ],
