@@ -6,11 +6,13 @@
   "main": "main.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --watch --hot --config build/webpack.config.js"
+    "dev": "webpack-dev-server --watch --hot --config build/webpack.config.js",
+    "lint": "vue-cli-service lint"
   },
   "author": "carzy",
   "license": "ISC",
   "dependencies": {
+    "element-ui": "^2.13.2",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^9.0.0",

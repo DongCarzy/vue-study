@@ -69,6 +69,13 @@ module.exports = {
       {
         test: /\.(png|jpg)$/,
         loader: 'url-loader',
+      },
+      /**
+       * 文件处理
+       */
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+        loader: 'file-loader'
       }
     ]
   },
