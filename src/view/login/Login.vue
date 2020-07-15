@@ -58,7 +58,7 @@ export default class Login extends Vue {
                 center: true,
                 duration: 1000
               });
-              this.$router.push("/main/home");
+              this.$router.push("/main/map");
             } else {
               this.$message({
                 message: "登陆失败",

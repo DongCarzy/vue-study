@@ -1,6 +1,6 @@
-import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '@/view/Home.vue'
-import Demo from '@/view/Demo.vue'
+import { RouteConfig } from 'vue-router'
+import Home from '@/view/content/data/Home.vue'
+import Map from '@/view/content/map/Map.vue'
 
 const mainRoutes: Array<RouteConfig> = [
   {
@@ -12,9 +12,9 @@ const mainRoutes: Array<RouteConfig> = [
     component: Home
   },
   {
-    path: 'demo',
-    name: 'Demo',
-    component: Demo
+    path: 'map',
+    name: 'map',
+    component: Map
   }
 ]
 
