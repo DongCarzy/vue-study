@@ -6,7 +6,7 @@
         <el-input type="text" placeholder="请输入账号" v-model="form.username" clearable />
       </el-form-item>
       <el-form-item label="密码" prop="password">
-        <el-input type="password" placeholder="请输入密码" v-model="form.password" clearable />
+        <el-input type="password" placeholder="请输入密码" v-on:keyup.enter="onSubmit('loginForm')" v-model="form.password" clearable />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" v-on:click="onSubmit('loginForm')">登录</el-button>
@@ -25,6 +25,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { Form } from "element-ui";
+import loginService from "../../services/LoginService";
 
 @Component
 export default class Login extends Vue {
@@ -47,8 +48,33 @@ export default class Login extends Vue {
     let loginForm: Form = this.$refs[formName] as Form;
     loginForm.validate((valid: boolean) => {
       if (valid) {
-        // 使用 vue-router 路由到指定页面，该方式称之为编程式导航
-        this.$router.push("/home");
+        loginService
+          .login(this.form)
+          .then(res => {
+            if (res.status === 200 && res.data.errorCode === 0) {
+              this.$message({
+                message: "登陆成功",
+                type: "success",
+                center: true,
+                duration: 1000
+              });
+              this.$router.push("/main/home");
+            } else {
+              this.$message({
+                message: "登陆失败",
+                type: "error",
+                center: true,
+                duration: 1000
+              });
+            }
+          })
+          .catch(err => {
+            this.$message({
+              message: "登陆失败",
+              type: "error",
+              duration: 1000
+            });
+          });
       } else {
         this.dialogVisible = true;
         return false;

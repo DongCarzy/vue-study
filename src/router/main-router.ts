@@ -4,20 +4,15 @@ import Demo from '@/view/Demo.vue'
 
 const mainRoutes: Array<RouteConfig> = [
   {
-    path: '/',
+    path: 'home',
     name: 'home',
-    component: Home,
-  },
-  {
-    path: '/home',
-    name: 'Home',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: Home
   },
   {
-    path: '/demo',
+    path: 'demo',
     name: 'Demo',
     component: Demo
   }

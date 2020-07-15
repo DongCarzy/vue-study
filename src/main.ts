@@ -2,12 +2,17 @@ import Vue from 'vue';
 import App from "@/App.vue"
 import router from './router'
 import store from './store'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/styles/reset.css'
 
 // 引入全部的 ElementUI 库
 Vue.use(ElementUI)
+// axios
+Vue.use(VueAxios, axios)
 
 new Vue({
   el: '#app',
