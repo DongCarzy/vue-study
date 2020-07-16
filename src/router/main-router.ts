@@ -1,15 +1,16 @@
 import { RouteConfig } from 'vue-router'
-import Home from '@/view/content/data/Home.vue'
-import Map from '@/view/content/map/Map.vue'
+import Map from '@view/content/map/Map.vue'
+import Manger from '@view/content/manger/Manger.vue'
 
 const mainRoutes: Array<RouteConfig> = [
   {
-    path: 'home',
-    name: 'home',
+    path: 'manger',
+    name: 'manger',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: Home
+    component: Manger,
+    children: []
   },
   {
     path: 'map',

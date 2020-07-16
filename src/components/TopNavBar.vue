@@ -44,7 +44,7 @@ export default class TopNavBar extends Vue {
         this.$router.push("/main/map");
         break;
       case "3":
-        this.$router.push("/main/home");
+        this.$router.push("/main/manger");
         break;
       default:
     }

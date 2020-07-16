@@ -26,6 +26,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import { Form } from "element-ui";
 import loginService from "../../services/LoginService";
+import * as types from '@store/mutation-types'
 
 @Component
 export default class Login extends Vue {
@@ -58,6 +59,7 @@ export default class Login extends Vue {
                 center: true,
                 duration: 1000
               });
+              this.$store.commit(types.LOGIN_SUC);
               this.$router.push("/main/map");
             } else {
               this.$message({

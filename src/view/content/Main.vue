@@ -6,15 +6,7 @@
           <TopNavBar />
         </el-header>
         <el-main>
-          <Menu />
-          <el-row>
-            <el-col :span="2">
-              <Menu/>
-            </el-col>
-            <el-col :span="10">
-              <router-view />
-            </el-col>
-          </el-row>
+          <router-view />
         </el-main>
       </el-container>
     </el-container>
@@ -23,13 +15,11 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import TopNavBar from "@component/TopNavBar.vue";
-import Menu from "@/view/content/menu/Menu.vue";
+import TopNavBar from "@components/TopNavBar.vue";
 
 @Component({
   components: {
-    TopNavBar,
-    Menu
+    TopNavBar
   }
 })
 export default class Main extends Vue {}
