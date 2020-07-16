@@ -3,14 +3,21 @@
     <el-form ref="loginForm" :model="form" :rules="rules" label-width="80px" class="login-box">
       <h3 class="login-title">欢迎登录</h3>
       <el-form-item label="账号" prop="username">
-        <el-input type="text" placeholder="请输入账号" v-model="form.username" clearable />
+        <el-input
+          type="text"
+          placeholder="请输入账号"
+          v-model="form.username"
+          ref="username"
+          @keydown.enter.native="onSubmit('loginForm')"
+          clearable
+        />
       </el-form-item>
       <el-form-item label="密码" prop="password">
         <el-input
           type="password"
           placeholder="请输入密码"
-          v-on:keyup.enter="onSubmit('loginForm')"
           v-model="form.password"
+          @keydown.enter.native="onSubmit('loginForm')"
           clearable
         />
       </el-form-item>
@@ -29,16 +36,18 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Ref } from "vue-property-decorator";
 import { Form } from "element-ui";
 import loginService from "../../services/LoginService";
 import * as types from "@store/mutation-types";
 
 @Component
 export default class Login extends Vue {
+  @Ref("username") readonly username: any;
+
   public form = {
-    username: "",
-    password: ""
+    username: "admin",
+    password: "654321"
   };
 
   // 表单验证，需要在 el-form-item 元素中增加 prop 属性
@@ -49,6 +58,11 @@ export default class Login extends Vue {
 
   // 对话框显示和隐藏
   private dialogVisible: boolean = false;
+
+  // 生命周期钩子
+  mounted() {
+    this.username.focus();
+  }
 
   onSubmit(formName: string) {
     // 为表单绑定验证功能
@@ -65,7 +79,7 @@ export default class Login extends Vue {
                 center: true,
                 duration: 1000
               });
-              this.$store.commit(types.LOGIN_SUC, res.headers['token']);
+              this.$store.commit(types.LOGIN_SUC, res.headers["token"]);
               this.$router.push("/main/map");
             } else {
               this.$message({

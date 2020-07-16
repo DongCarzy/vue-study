@@ -19,9 +19,9 @@
         <el-col :span="2">
           <el-submenu index="4">
             <template slot="title">admin</template>
-            <el-menu-item index="3-1">修改密码</el-menu-item>
-            <el-menu-item index="3-2">注销</el-menu-item>
-            <el-menu-item index="3-3">关于</el-menu-item>
+            <el-menu-item index="4-1">修改密码</el-menu-item>
+            <el-menu-item index="4-2">注销</el-menu-item>
+            <el-menu-item index="4-3">关于</el-menu-item>
           </el-submenu>
         </el-col>
       </el-row>
@@ -31,6 +31,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { LOGIN_OUT } from "@store/mutation-types";
 
 @Component({
   components: {}
@@ -45,6 +46,10 @@ export default class TopNavBar extends Vue {
         break;
       case "3":
         this.$router.push("/main/manger");
+        break;
+      case "4-2":
+        this.$store.commit(LOGIN_OUT);
+        this.$router.push("/login");
         break;
       default:
     }
