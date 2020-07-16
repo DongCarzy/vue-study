@@ -4,8 +4,7 @@ import * as types from './mutation-types'
 import { actions } from './actions'
 import { mutations } from './mutations'
 
-import Gloab from "./states/Gloab"
-import Gloaba from "@store/states/Gloab"
+import Gloab from "@store/states/Gloab"
 
 Vue.use(Vuex)
 

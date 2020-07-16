@@ -6,7 +6,13 @@
         <el-input type="text" placeholder="请输入账号" v-model="form.username" clearable />
       </el-form-item>
       <el-form-item label="密码" prop="password">
-        <el-input type="password" placeholder="请输入密码" v-on:keyup.enter="onSubmit('loginForm')" v-model="form.password" clearable />
+        <el-input
+          type="password"
+          placeholder="请输入密码"
+          v-on:keyup.enter="onSubmit('loginForm')"
+          v-model="form.password"
+          clearable
+        />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" v-on:click="onSubmit('loginForm')">登录</el-button>
@@ -26,7 +32,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import { Form } from "element-ui";
 import loginService from "../../services/LoginService";
-import * as types from '@store/mutation-types'
+import * as types from "../../store/mutation-types";
 
 @Component
 export default class Login extends Vue {

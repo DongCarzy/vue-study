@@ -1,5 +1,5 @@
-import * as types from './mutation-types'
-import gloab from './states/Gloab'
+import gloab from '@store//states/Gloab'
+import * as types from "@store/mutation-types"
 
 export const mutations = {
 

@@ -25,11 +25,26 @@
       "scripthost"
     ],
     "paths": {
-      "@src/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@view/*": ["src/view/*"],
-      "@services/*": ["src/services/*"],
-      "@store/*": ["store/*"]
+      "@src/*": [
+        "src/*"
+      ],
+      "@/*": [
+        "*",
+        "src/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@view/*": [
+        "src/view/*"
+      ],
+      "@services/*": [
+        "src/services/*"
+      ],
+      "@store/*": [
+        "*",
+        "src/store/*"
+      ]
     }
   },
   "exclude": [
