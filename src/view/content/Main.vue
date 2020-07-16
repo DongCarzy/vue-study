@@ -16,7 +16,6 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import TopNavBar from '@components/TopNavBar.vue'
-import * as types1 from '@store/mutation-types'
 
 @Component({
 	components: {

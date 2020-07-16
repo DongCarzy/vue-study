@@ -16,6 +16,9 @@ const mainRoutes: Array<RouteConfig> = [
     path: 'map',
     name: 'map',
     component: Map
+  }, {
+    path: '*',
+    redirect: 'map',
   }
 ]
 
