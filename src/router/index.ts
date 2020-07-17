@@ -5,8 +5,8 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig, RawLocation, Route } from 'vue-router'
 import MainRouter from './main-router'
 import store from '@store/index'
-import {IS_LOGIN} from '@store/mutation-types'
- 
+import { IS_LOGIN, LOGIN_SUC } from '@store/mutation-types'
+
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
@@ -18,7 +18,20 @@ const routes: Array<RouteConfig> = [
     path: '/main',
     name: 'main',
     component: Main,
-    children: MainRouter
+    children: MainRouter,
+    beforeEnter: (to, from, next) => {
+      if (!store.getters[IS_LOGIN]) {
+        const token = sessionStorage.getItem("token")
+        if (token) {
+          store.commit(LOGIN_SUC, token)
+          next()
+        } else {
+          next({ name: 'login' })
+        }
+      } else {
+        next()
+      }
+    }
   },
   {
     path: '/login',
@@ -35,11 +48,8 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.name !== 'login' && !store.getters[IS_LOGIN]) {
-    next({ name: 'login' })
-  } else {
-    next()
-  }
+  console.log(to.path)
+  next()
 })
 
 export default router
