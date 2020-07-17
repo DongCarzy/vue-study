@@ -13,7 +13,7 @@ const debug = process.env.NODE_ENV !== 'production'
 export default new Vuex.Store<Gloab>({
   // 状态不是由 mutation 函数引起则抛错,性能有损耗,发布环境改为false
   strict: debug,
-  state: {
+  state: sessionStorage.getItem('state') ? JSON.parse(String(sessionStorage.getItem('state'))) : {
     token: ''
   },
   // 暴露给外界调用,更新state状态,必须是同步函数
