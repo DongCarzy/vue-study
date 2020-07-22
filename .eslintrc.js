@@ -12,7 +12,9 @@ module.exports = {
     ecmaVersion: 2020
   },
   rules: {
-    'no-console': 'off',
-    'no-debugger': 'off'
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    // 允许 any 符号
+    '@typescript-eslint/no-explicit-any': 'off'
   }
 }

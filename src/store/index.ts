@@ -1,10 +1,10 @@
-import Vue from "vue"
+import Vue from 'vue'
 import Vuex from 'vuex'
 import * as types from './mutation-types'
 import { actions } from './actions'
 import { mutations } from './mutations'
 
-import Gloab from "@store/states/Gloab"
+import Gloab from '@/store/states/Gloab'
 
 Vue.use(Vuex)
 
@@ -26,7 +26,7 @@ export default new Vuex.Store<Gloab>({
   // 实时计算并缓存状态
   getters: {
     [types.IS_LOGIN]: state => {
-      return state.token != ''
+      return state.token && state.token !== ''
     }
   }
 })

@@ -1,5 +1,11 @@
 # vue-study
 
+## 启动
+
+```node
+yarn serve
+```
+
 ## 依赖
 
 ### @vue/cli-plugin-typescript
@@ -8,7 +14,7 @@
 - tslint
 - ts-loader
 
-## @vue/cli-service
+### @vue/cli-service
 
 - webpack-dev-server
 - url-loader
@@ -18,7 +24,7 @@
 - html-webpack-plugin
 - css-loader
 
-## @vue/cli-plugin-babel
+### @vue/cli-plugin-babel
 
 - babel-loader
 - @babel/core

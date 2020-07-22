@@ -1,6 +1,6 @@
 import { RouteConfig } from 'vue-router'
-import Map from '@view/content/map/Map.vue'
-import Manger from '@view/content/manger/Manger.vue'
+import Map from '@/views/content/map/Map.vue'
+import Manger from '@/views/content/manger/Manger.vue'
 
 const mainRoutes: Array<RouteConfig> = [
   {
@@ -18,8 +18,8 @@ const mainRoutes: Array<RouteConfig> = [
     component: Map
   }, {
     path: '*',
-    redirect: 'map',
+    redirect: 'map'
   }
 ]
 
-export default mainRoutes;
+export default mainRoutes

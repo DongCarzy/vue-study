@@ -36,37 +36,37 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Ref } from "vue-property-decorator";
-import { Form } from "element-ui";
-import loginService from "../../services/LoginService";
-import * as types from "@store/mutation-types";
+import { Component, Vue, Ref } from 'vue-property-decorator'
+import { Form } from 'element-ui'
+import loginService from '../../services/LoginService'
+import * as types from '@/store/mutation-types'
 
 @Component
 export default class Login extends Vue {
-  @Ref("username") readonly username: any;
+  @Ref('username') readonly username!: any;
 
   public form = {
-    username: "admin",
-    password: "654321"
+    username: 'admin',
+    password: '654321'
   };
 
   // 表单验证，需要在 el-form-item 元素中增加 prop 属性
   private rules = {
-    username: [{ required: true, message: "账号不可为空", trigger: "blur" }],
-    password: [{ required: true, message: "密码不可为空", trigger: "blur" }]
+    username: [{ required: true, message: '账号不可为空', trigger: 'blur' }],
+    password: [{ required: true, message: '密码不可为空', trigger: 'blur' }]
   };
 
   // 对话框显示和隐藏
-  private dialogVisible: boolean = false;
+  private dialogVisible = false;
 
   // 生命周期钩子
-  mounted() {
-    this.username.focus();
+  mounted () {
+    this.username.focus()
   }
 
-  onSubmit(formName: string) {
+  onSubmit (formName: string) {
     // 为表单绑定验证功能
-    let loginForm: Form = this.$refs[formName] as Form;
+    const loginForm: Form = this.$refs[formName] as Form
     loginForm.validate((valid: boolean) => {
       if (valid) {
         loginService
@@ -74,36 +74,37 @@ export default class Login extends Vue {
           .then(res => {
             if (res.status === 200 && res.data.errorCode === 0) {
               this.$message({
-                message: "登陆成功",
-                type: "success",
+                message: '登陆成功',
+                type: 'success',
                 center: true,
                 duration: 1000
-              });
-              this.$store.commit(types.LOGIN_SUC, res.headers["token"]);
-              this.$router.push("/main/map");
+              })
+              this.$store.commit(types.LOGIN_SUC, res.headers.token)
+              this.$router.push('/main/map')
             } else {
               this.$message({
-                message: "登陆失败",
-                type: "error",
+                message: '登陆失败',
+                type: 'error',
                 center: true,
                 duration: 1000
-              });
+              })
             }
           })
-          .catch(err => {
+          .catch(() => {
             this.$message({
-              message: "登陆失败",
-              type: "error",
+              message: '登陆失败',
+              type: 'error',
               duration: 1000
-            });
-          });
+            })
+          })
       } else {
-        this.dialogVisible = true;
-        return false;
+        this.dialogVisible = true
+        return false
       }
-    });
+    })
   }
 }
+
 </script>
 
 <style scoped>

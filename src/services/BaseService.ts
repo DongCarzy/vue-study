@@ -1,11 +1,9 @@
-import axios, { AxiosStatic } from "axios";
+import axios, { AxiosStatic } from 'axios'
 
 export class BaseService {
-
   public axios: AxiosStatic;
 
-  constructor(){
-    this.axios = axios;
+  constructor () {
+    this.axios = axios
   }
-
 }

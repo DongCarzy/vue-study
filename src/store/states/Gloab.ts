@@ -1,4 +1,4 @@
 export default interface Gloab {
-  token: string,
-  title?: string
+  token: string;
+  title?: string;
 }

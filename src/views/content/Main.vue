@@ -13,8 +13,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Ref } from "vue-property-decorator";
-import TopNavBar from "@components/TopNavBar.vue";
+import { Component, Vue, Ref } from 'vue-property-decorator'
+import TopNavBar from '@/components/TopNavBar.vue'
 
 @Component({
   components: {
@@ -22,12 +22,12 @@ import TopNavBar from "@components/TopNavBar.vue";
   }
 })
 export default class Main extends Vue {
-  @Ref("main") main: any;
-  @Ref("children") children: any;
+  @Ref('main') main: any;
+  @Ref('children') children: any;
 
-  mounted() {
-    const height = this.main.offsetHeight;
-    this.children.style.height = height - 56 + "px";
+  mounted () {
+    const height = this.main.offsetHeight
+    this.children.style.height = height - 56 + 'px'
   }
 }
 </script>

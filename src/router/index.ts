@@ -1,18 +1,17 @@
-
-import Main from '@view/content/Main.vue'
-import Login from '@view/login/Login.vue'
+import Main from '@/views/content/Main.vue'
+import Login from '@/views/login/Login.vue'
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import MainRouter from './main-router'
-import store from '@store/index'
-import { IS_LOGIN } from '@store/mutation-types'
+import store from '@/store/index'
+import { IS_LOGIN } from '@/store/mutation-types'
 
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    redirect: 'login'
+    redirect: '/login'
   },
   {
     path: '/main',
@@ -31,13 +30,16 @@ const routes: Array<RouteConfig> = [
     path: '/login',
     name: 'login',
     component: Login
-  }, {
+  },
+  {
     path: '*',
     redirect: '/main/map'
   }
 ]
 
 const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes
 })
 
