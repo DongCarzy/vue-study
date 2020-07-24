@@ -23,7 +23,6 @@
 </template>
 
 <script lang="ts">
-
 import { Component, Vue } from 'vue-property-decorator'
 import { LOGIN_OUT } from '@/store/mutation-types'
 
@@ -31,46 +30,43 @@ import { LOGIN_OUT } from '@/store/mutation-types'
 export default class TopNavBar extends Vue {
   private activeIndex = '2'
 
-  pathTo (keyPath: string) {
+  public pathTo(keyPath: string) {
     this.$router.push(keyPath)
   }
 
-  loginout () {
+  public loginout() {
     this.$store.commit(LOGIN_OUT)
     this.$router.push('/login')
   }
 }
-
 </script>
 
-<style>
+<style lang="scss">
 .clean-active {
   border-bottom-color: #545c64 !important;
-}
-
-.submenu {
-  text-align: center;
-  vertical-align: middle;
-}
-
-.submenu :hover {
-  color: goldenrod;
-  cursor: pointer;
 }
 
 .top-nav-bar {
   width: 100%;
   height: 100%;
-  padding-top: 1%;
+  padding-top: 20px;
+  padding-bottom: 20px;
   background-color: #545c64;
-  font-size: 20px;
+  font-size: 22px;
   color: #ffffff;
-}
-
-.dropdown {
-  width: 100%;
-  height: 100%;
-  font-size: 20px !important;
-  color: #ffffff !important;
+  .submenu {
+    text-align: center;
+    vertical-align: middle;
+    :hover {
+      color: goldenrod;
+      cursor: pointer;
+    }
+    .dropdown {
+      width: 100%;
+      height: 100%;
+      font-size: 20px !important;
+      color: #ffffff !important;
+    }
+  }
 }
 </style>

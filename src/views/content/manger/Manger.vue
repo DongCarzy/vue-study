@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <el-row>
-      <el-col :span="2">
-        <Menu />
-      </el-col>
-      <el-col :span="10">
-        <router-view />
-      </el-col>
-    </el-row>
-  </div>
+  <el-row>
+    <el-col :span="4">
+      <Menu />
+    </el-col>
+    <el-col :span="20">
+      <router-view />
+    </el-col>
+  </el-row>
 </template>
 
 <script lang="ts">

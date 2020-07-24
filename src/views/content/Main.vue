@@ -1,19 +1,14 @@
 <template>
-  <div ref="main" class="main">
-    <div class="top-bar">
-      <TopNavBar />
-    </div>
-
-    <div ref="children" class="children">
-      <transition name="children">
-        <router-view />
-      </transition>
-    </div>
+  <div class="main">
+    <el-container direction="vertical">
+      <TopNavBar class="bar"></TopNavBar>
+      <router-view class="router"></router-view>
+    </el-container>
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue, Ref } from 'vue-property-decorator'
+<script lang='ts'>
+import { Component, Vue } from 'vue-property-decorator'
 import TopNavBar from '@/components/TopNavBar.vue'
 
 @Component({
@@ -21,50 +16,24 @@ import TopNavBar from '@/components/TopNavBar.vue'
     TopNavBar
   }
 })
-export default class Main extends Vue {
-  @Ref('main') main: any;
-  @Ref('children') children: any;
-
-  mounted () {
-    const height = this.main.offsetHeight
-    this.children.style.height = height - 56 + 'px'
-  }
-}
+export default class Main extends Vue {}
 </script>
 
-<style scoped>
-/* 可以设置不同的进入和离开动画 */
-
-/* 设置持续时间和动画函数 */
-
-.children-fade-enter-active {
-  transition: all 0.3s ease;
-}
-
-.children-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.children-fade-enter,
-.slide-fade-leave-to
-/* .slide-fade-leave-active for below version 2.1.8 */
-
- {
-  transform: translateX(10px);
-  opacity: 0;
-}
-
+<style lang='scss' scoped>
 .main {
-  width: 100%;
+  width: 100vw;
   height: 100%;
-}
-
-.top-bar {
-  width: 100%;
-  height: 56px;
-}
-
-.children {
-  width: 100%;
+  .el-container {
+    width: 100vw;
+    height: 100%;
+    .bar {
+      width: 100vw;
+      height: 24px;
+    }
+    .router {
+      width: 100vw;
+      height: 100%;
+    }
+  }
 }
 </style>
